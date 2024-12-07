@@ -67,11 +67,11 @@ class DowryApp(GridLayout):
             if not name:
                 self.result_label.text = "Name cannot be empty."
                 return
-            if not self.age_input.text.strip().isindigit():
+            if not self.age_input.text.strip().isdigit():
                 self.result_label.text = "Age must be a valid number."
                 return
             age = int(self.age_input.text)
-            if not self.dowry_input.text.strp().replace('.', '', 1).isdigit():
+            if not self.dowry_input.text.strip().replace('.', '', 1).isdigit():
                 self.result_label.text = "Asked dowry must be a valid number."
                 return
             asked_dowry =float(self.dowry_input.text)
@@ -81,6 +81,7 @@ class DowryApp(GridLayout):
             if asked_dowry <= 0:
                 self.result_label.text="Asked dowry must be greater than 0."
                 return
+            
             raised_by_single_mother = self.raised_by_single_mother_checkbox.active
             single_mother = self.single_mother_checkbox.active
             college = self.college_checkbox.active
